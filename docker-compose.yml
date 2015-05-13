@@ -1,15 +1,12 @@
-web:
-  build: .
-  command: php -S 0.0.0.0:8000 -t /code/wordpress
+wordpress:
+  image: wordpress
+  links:
+    - db:mysql
   ports:
-    - "8000:8000"
-  #links:
-   #- db
+    - 8080:80
   volumes:
-    - .:/code
-#db:
-  #image: orchardup/mysql
-  #environment:
-    #MYSQL_DATABASE: wordpress
-  #volumes:
-    #- inning_mysql/mysql:/var/lib/mysql
+    - wordpress:/var/www/html
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: example

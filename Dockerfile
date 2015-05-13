@@ -1,16 +1,7 @@
-#FROM orchardup/php
-FROM php:5.6-fpm
-ADD . /code
-WORKDIR /code
-# Install modules
-RUN apt-get update && apt-get install -y \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libmcrypt-dev \
-        libpng12-dev \
-    && docker-php-ext-install iconv mcrypt \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install mysql
-CMD ["php-fpm"]
-
+From wordpress
+ADD wordpress /var/www/html
+ENV WORDPRESS_DB_HOST w00cd5ef.kasserver.com
+ENV WORDPRESS_DB_USER d01e32c5
+ENV WORDPRESS_DB_NAME d01e32c5
+ENV WORDPRESS_DB_PASSWORD rnXFr6dBPUYkS9Ly
+EXPOSE 8080 80
