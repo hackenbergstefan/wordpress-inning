@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/wordpress-inning-theme"]
+	path = wp-content/themes/wordpress-inning-theme
+	url = https://github.com/hackenbergstefan/wordpress-inning-theme
