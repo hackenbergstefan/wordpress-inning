@@ -1,5 +1,8 @@
 #!/bin/sh
+pushd "`dirname "$0"`" >/dev/null
 while true; do
-  ./pullAll.sh
+  git pull origin master
+  git submodule foreach git pull origin master
   sleep 60s
 done
+popd
